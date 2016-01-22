@@ -15,6 +15,10 @@
 		525254BE1C52972100434EF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 525254BC1C52972100434EF4 /* LaunchScreen.storyboard */; };
 		525254C91C52972100434EF4 /* SaveAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254C81C52972100434EF4 /* SaveAppTests.swift */; };
 		525254D41C52972100434EF4 /* SaveAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254D31C52972100434EF4 /* SaveAppUITests.swift */; };
+		525254E81C529FAE00434EF4 /* CollaboratorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254E71C529FAE00434EF4 /* CollaboratorTableViewCell.swift */; };
+		525254EA1C52A48C00434EF4 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254E91C52A48C00434EF4 /* RatingControl.swift */; };
+		525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */; };
+		525254EE1C52B01900434EF4 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254ED1C52B01900434EF4 /* Offer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		525254CF1C52972100434EF4 /* SaveAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SaveAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		525254D31C52972100434EF4 /* SaveAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveAppUITests.swift; sourceTree = "<group>"; };
 		525254D51C52972100434EF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		525254E71C529FAE00434EF4 /* CollaboratorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorTableViewCell.swift; sourceTree = "<group>"; };
+		525254E91C52A48C00434EF4 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
+		525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorTableViewController.swift; sourceTree = "<group>"; };
+		525254ED1C52B01900434EF4 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +107,12 @@
 		525254AF1C52972000434EF4 /* SaveApp */ = {
 			isa = PBXGroup;
 			children = (
+				525254E91C52A48C00434EF4 /* RatingControl.swift */,
 				525254B01C52972100434EF4 /* AppDelegate.swift */,
 				525254B21C52972100434EF4 /* ViewController.swift */,
+				525254E71C529FAE00434EF4 /* CollaboratorTableViewCell.swift */,
+				525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */,
+				525254ED1C52B01900434EF4 /* Offer.swift */,
 				525254B41C52972100434EF4 /* Main.storyboard */,
 				525254BA1C52972100434EF4 /* Assets.xcassets */,
 				525254BC1C52972100434EF4 /* LaunchScreen.storyboard */,
@@ -259,8 +271,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				525254EE1C52B01900434EF4 /* Offer.swift in Sources */,
 				525254B31C52972100434EF4 /* ViewController.swift in Sources */,
+				525254E81C529FAE00434EF4 /* CollaboratorTableViewCell.swift in Sources */,
 				525254B91C52972100434EF4 /* SaveApp.xcdatamodeld in Sources */,
+				525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */,
+				525254EA1C52A48C00434EF4 /* RatingControl.swift in Sources */,
 				525254B11C52972100434EF4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -486,6 +502,7 @@
 				525254DA1C52972100434EF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		525254DB1C52972100434EF4 /* Build configuration list for PBXNativeTarget "SaveAppTests" */ = {
 			isa = XCConfigurationList;
@@ -494,6 +511,7 @@
 				525254DD1C52972100434EF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		525254DE1C52972100434EF4 /* Build configuration list for PBXNativeTarget "SaveAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +520,7 @@
 				525254E01C52972100434EF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
