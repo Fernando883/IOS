@@ -19,7 +19,8 @@
 		525254EA1C52A48C00434EF4 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254E91C52A48C00434EF4 /* RatingControl.swift */; };
 		525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */; };
 		525254EE1C52B01900434EF4 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254ED1C52B01900434EF4 /* Offer.swift */; };
-		D4EE39521C538CD2009A8E7A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE39511C538CD2009A8E7A /* UserViewController.swift */; };
+		D4EE39541C53B1BC009A8E7A /* inoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */; };
+		D4EE39561C53B1DF009A8E7A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE39551C53B1DF009A8E7A /* UserViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +59,8 @@
 		525254E91C52A48C00434EF4 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorTableViewController.swift; sourceTree = "<group>"; };
 		525254ED1C52B01900434EF4 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
-		D4EE39511C538CD2009A8E7A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inoutTableViewController.swift; sourceTree = "<group>"; };
+		D4EE39551C53B1DF009A8E7A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +111,8 @@
 		525254AF1C52972000434EF4 /* SaveApp */ = {
 			isa = PBXGroup;
 			children = (
-				D4EE39511C538CD2009A8E7A /* UserViewController.swift */,
+				D4EE39551C53B1DF009A8E7A /* UserViewController.swift */,
+				D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */,
 				525254E91C52A48C00434EF4 /* RatingControl.swift */,
 				525254B01C52972100434EF4 /* AppDelegate.swift */,
 				525254B21C52972100434EF4 /* ViewController.swift */,
@@ -275,10 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				525254EE1C52B01900434EF4 /* Offer.swift in Sources */,
-				D4EE39521C538CD2009A8E7A /* UserViewController.swift in Sources */,
+				D4EE39561C53B1DF009A8E7A /* UserViewController.swift in Sources */,
 				525254B31C52972100434EF4 /* ViewController.swift in Sources */,
 				525254E81C529FAE00434EF4 /* CollaboratorTableViewCell.swift in Sources */,
 				525254B91C52972100434EF4 /* SaveApp.xcdatamodeld in Sources */,
+				D4EE39541C53B1BC009A8E7A /* inoutTableViewController.swift in Sources */,
 				525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */,
 				525254EA1C52A48C00434EF4 /* RatingControl.swift in Sources */,
 				525254B11C52972100434EF4 /* AppDelegate.swift in Sources */,
