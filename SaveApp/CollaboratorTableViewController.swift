@@ -50,7 +50,7 @@ class CollaboratorTableViewController: UITableViewController {
         let offer1 = Offer(name: "Pan del mercadona", photo: photo1, descriptionOffer: "Oferta de pan", rating: 5, validDate: "20-3-89", price: "0.40")
         
         let photo2 = UIImage(named: "Offer1")
-        let offer2 = Offer(name: "Helado del mercadona", photo: photo1, descriptionOffer: "Oferta de Helado", rating: 3, validDate: "20-3-89", price: "0.40")
+        let offer2 = Offer(name: "Helado del mercadona", photo: photo2, descriptionOffer: "Oferta de Helado", rating: 3, validDate: "20-3-89", price: "0.40")
         
         offers += [offer1,offer2]
         
