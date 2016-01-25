@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 class inoutTableViewController: UITableViewController {
+    
+    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     var outgo: Bool?
     
@@ -16,8 +19,8 @@ class inoutTableViewController: UITableViewController {
     @IBOutlet weak var addIncomeButton: UIBarButtonItem!
     @IBOutlet weak var addOutgoButton: UIBarButtonItem!
     
-    var incomes = [Income]()
-    var outgoes = [Outgo]()
+    var incomes = [Incomes]()
+    var outgoes = [Outgoes]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +28,21 @@ class inoutTableViewController: UITableViewController {
         // Do any additional setup after loading the view.
         if outgo == true{
             navigationBar.rightBarButtonItems?.removeFirst()
-            loadSampleOutgoes()
+
         }else if outgo == false{
             navigationBar.rightBarButtonItems?.popLast()
-            loadSampleIncomes()
+
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let fetchRequest = NSFetchRequest(entityName: "Incomes")
+        
+        let results = try! managedContext.executeFetchRequest(fetchRequest)
+        incomes = results as! [Incomes]
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,20 +83,21 @@ class inoutTableViewController: UITableViewController {
         
         if outgo == true{
             
-            let outgoe = outgoes[indexPath.row]
+            //let outgoe = outgoes[indexPath.row]
             
-            cell.conceptTextLabel.text = outgoe.concept
-            cell.quantityTextLabel.text = outgoe.quantity
-            cell.dateTextLabel.text = outgoe.dateOutgo
-            
+            //cell.conceptTextLabel.text = outgoe.concept
+            //cell.quantityTextLabel.text = outgoe.quantity?.stringValue as! String
+            //cell.dateTextLabel.text = outgoe.dateOutgo
             
         }else if outgo == false{//If we want to see incomes
             
             let income = incomes[indexPath.row]
             
             cell.conceptTextLabel.text = income.concept
-            cell.quantityTextLabel.text = income.quantity
-            cell.dateTextLabel.text = income.dateIncome
+            cell.quantityTextLabel.text = income.quantity?.stringValue
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-mm-dd"
+            cell.dateTextLabel.text = dateFormatter.stringFromDate(income.dateIncome!)
             
         }
         
@@ -94,24 +108,7 @@ class inoutTableViewController: UITableViewController {
     
     //Other funcs
     
-    func loadSampleIncomes(){
-        
-        let income1 = Income(concept:"Nomina", quantity:"1200",dateIncome: "01 de Enero")
-        let income2 = Income(concept: "Ingreso Efectivo",quantity: "150",dateIncome: "22 de Enero")
-        
-        incomes+=[income1,income2]
-        
-    }
-    
-    func loadSampleOutgoes(){
-        
-        let outgo1 = Outgo(concept: "Pan", quantity: "0,30", dateOutgo: "01/01")
-        let outgo2 = Outgo(concept: "Play 4", quantity: "299", dateOutgo: "06/01")
-        let outgo3 = Outgo(concept: "Mercadona", quantity: "65", dateOutgo: "15/01")
-        
-        outgoes += [outgo1,outgo2,outgo3]
-        
-    }
+
     
     
 

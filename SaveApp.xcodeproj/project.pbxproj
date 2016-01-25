@@ -19,6 +19,10 @@
 		525254EA1C52A48C00434EF4 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254E91C52A48C00434EF4 /* RatingControl.swift */; };
 		525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */; };
 		525254EE1C52B01900434EF4 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254ED1C52B01900434EF4 /* Offer.swift */; };
+		D42AFFD61C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD21C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift */; };
+		D42AFFD71C562E7F00DC7A5E /* Outgoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */; };
+		D42AFFD81C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD41C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift */; };
+		D42AFFD91C562E7F00DC7A5E /* Incomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD51C562E7F00DC7A5E /* Incomes.swift */; };
 		D464786F1C54E3230030E3CE /* Outgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D464786E1C54E3230030E3CE /* Outgo.swift */; };
 		D4EE39541C53B1BC009A8E7A /* inoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */; };
 		D4EE39561C53B1DF009A8E7A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE39551C53B1DF009A8E7A /* UserViewController.swift */; };
@@ -62,6 +66,10 @@
 		525254E91C52A48C00434EF4 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorTableViewController.swift; sourceTree = "<group>"; };
 		525254ED1C52B01900434EF4 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		D42AFFD21C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Outgoes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outgoes.swift; sourceTree = "<group>"; };
+		D42AFFD41C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Incomes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D42AFFD51C562E7F00DC7A5E /* Incomes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incomes.swift; sourceTree = "<group>"; };
 		D464786E1C54E3230030E3CE /* Outgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outgo.swift; sourceTree = "<group>"; };
 		D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inoutTableViewController.swift; sourceTree = "<group>"; };
 		D4EE39551C53B1DF009A8E7A /* UserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EE39591C54DB0D009A8E7A /* Income.swift */,
+				D464786E1C54E3230030E3CE /* Outgo.swift */,
 				D4EE39551C53B1DF009A8E7A /* UserViewController.swift */,
 				D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */,
 				D4EE39571C54D9DF009A8E7A /* inoutTableViewCell.swift */,
@@ -132,7 +141,10 @@
 				525254BC1C52972100434EF4 /* LaunchScreen.storyboard */,
 				525254BF1C52972100434EF4 /* Info.plist */,
 				525254B71C52972100434EF4 /* SaveApp.xcdatamodeld */,
-				D464786E1C54E3230030E3CE /* Outgo.swift */,
+				D42AFFD21C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift */,
+				D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */,
+				D42AFFD41C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift */,
+				D42AFFD51C562E7F00DC7A5E /* Incomes.swift */,
 			);
 			path = SaveApp;
 			sourceTree = "<group>";
@@ -286,12 +298,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42AFFD71C562E7F00DC7A5E /* Outgoes.swift in Sources */,
 				D464786F1C54E3230030E3CE /* Outgo.swift in Sources */,
 				525254EE1C52B01900434EF4 /* Offer.swift in Sources */,
 				D4EE395A1C54DB0D009A8E7A /* Income.swift in Sources */,
 				D4EE39581C54D9DF009A8E7A /* inoutTableViewCell.swift in Sources */,
+				D42AFFD81C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift in Sources */,
+				D42AFFD91C562E7F00DC7A5E /* Incomes.swift in Sources */,
 				D4EE39561C53B1DF009A8E7A /* UserViewController.swift in Sources */,
 				525254B31C52972100434EF4 /* ViewController.swift in Sources */,
+				D42AFFD61C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift in Sources */,
 				525254E81C529FAE00434EF4 /* CollaboratorTableViewCell.swift in Sources */,
 				525254B91C52972100434EF4 /* SaveApp.xcdatamodeld in Sources */,
 				D4EE39541C53B1BC009A8E7A /* inoutTableViewController.swift in Sources */,
@@ -437,10 +453,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SaveApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Grupo4.SaveApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaveApp/SaveApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -448,10 +467,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SaveApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Grupo4.SaveApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SaveApp/SaveApp-Bridging-Header.h";
 			};
 			name = Release;
 		};
