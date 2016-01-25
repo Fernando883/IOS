@@ -76,6 +76,19 @@ class inoutTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func unwindToAddIncomeList(sender: UIStoryboardSegue) {
+            print("Fernando¡s calling")
+        
+        let fetchRequest = NSFetchRequest(entityName: "Incomes")
+        
+        let results = try! managedContext.executeFetchRequest(fetchRequest)
+        incomes = results as! [Incomes]
+        
+        tableView.reloadData()
+        
+        
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier = "inoutCellView"
@@ -83,11 +96,13 @@ class inoutTableViewController: UITableViewController {
         
         if outgo == true{
             
-            //let outgoe = outgoes[indexPath.row]
+            let outgo = outgoes[indexPath.row]
             
-            //cell.conceptTextLabel.text = outgoe.concept
-            //cell.quantityTextLabel.text = outgoe.quantity?.stringValue as! String
-            //cell.dateTextLabel.text = outgoe.dateOutgo
+            cell.conceptTextLabel.text = outgo.concept
+            cell.quantityTextLabel.text = outgo.quantity?.stringValue
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "yyyy-mm-dd"
+            cell.dateTextLabel.text = dateFormatter.stringFromDate(outgo.dateOutgo!)
             
         }else if outgo == false{//If we want to see incomes
             
