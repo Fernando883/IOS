@@ -12,8 +12,10 @@ import CoreData
 @objc(Incomes)
 class Incomes: NSManagedObject {
 
-
-        
+    @NSManaged var concept: String?
+    @NSManaged var quantity: NSNumber?
+    @NSManaged var dateIncome: NSDate?
+    
     
 
 }

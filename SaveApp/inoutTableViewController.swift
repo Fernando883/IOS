@@ -11,7 +11,7 @@ import CoreData
 
 class inoutTableViewController: UITableViewController {
     
-    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let incomeFacade = IncomesFacade()
 
     var outgo: Bool?
     
@@ -38,10 +38,8 @@ class inoutTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let fetchRequest = NSFetchRequest(entityName: "Incomes")
         
-        let results = try! managedContext.executeFetchRequest(fetchRequest)
-        incomes = results as! [Incomes]
+        incomes = incomeFacade.getIncomes()
         
     }
 
@@ -79,10 +77,7 @@ class inoutTableViewController: UITableViewController {
     @IBAction func unwindToAddIncomeList(sender: UIStoryboardSegue) {
             print("Fernando¡s calling")
         
-        let fetchRequest = NSFetchRequest(entityName: "Incomes")
-        
-        let results = try! managedContext.executeFetchRequest(fetchRequest)
-        incomes = results as! [Incomes]
+        incomes = incomeFacade.getIncomes()
         
         tableView.reloadData()
         

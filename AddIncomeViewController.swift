@@ -13,7 +13,7 @@ class AddIncomeViewController: UIViewController {
 
     //MARK: Properties
     
-    let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let incomeFacade = IncomesFacade()
     
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var conceptTextField: UITextField!
@@ -59,22 +59,12 @@ class AddIncomeViewController: UIViewController {
             let quantity = number?.floatValue
             let dateIncome = dateDatePicker.date
             
-            saveIncome(concept, quantity: quantity, dateIncome: dateIncome)
+            incomeFacade.saveIncome(concept, quantity: quantity, dateIncome: dateIncome)
         }
         
     }
     
-    func saveIncome (concept: String, quantity: Float?, dateIncome: NSDate){
-    
-        let income = NSEntityDescription.insertNewObjectForEntityForName("Incomes", inManagedObjectContext: managedContext) as! Incomes
-        
-        income.concept = concept
-        income.quantity = quantity
-        income.dateIncome = dateIncome
-        
-        try! managedContext.save()
-        
-    }
+
     
 
 }

@@ -19,9 +19,8 @@
 		525254EA1C52A48C00434EF4 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254E91C52A48C00434EF4 /* RatingControl.swift */; };
 		525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */; };
 		525254EE1C52B01900434EF4 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254ED1C52B01900434EF4 /* Offer.swift */; };
-		D42AFFD61C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD21C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift */; };
+		D42A007E1C5764D400DC7A5E /* IncomesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */; };
 		D42AFFD71C562E7F00DC7A5E /* Outgoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */; };
-		D42AFFD81C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD41C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift */; };
 		D42AFFD91C562E7F00DC7A5E /* Incomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD51C562E7F00DC7A5E /* Incomes.swift */; };
 		D42AFFDB1C56473800DC7A5E /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFDA1C56473800DC7A5E /* AddIncomeViewController.swift */; };
 		D4EE39541C53B1BC009A8E7A /* inoutTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */; };
@@ -65,9 +64,8 @@
 		525254E91C52A48C00434EF4 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorTableViewController.swift; sourceTree = "<group>"; };
 		525254ED1C52B01900434EF4 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
-		D42AFFD21C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Outgoes+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomesFacade.swift; sourceTree = "<group>"; };
 		D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outgoes.swift; sourceTree = "<group>"; };
-		D42AFFD41C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Incomes+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D42AFFD51C562E7F00DC7A5E /* Incomes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incomes.swift; sourceTree = "<group>"; };
 		D42AFFDA1C56473800DC7A5E /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddIncomeViewController.swift; path = ../AddIncomeViewController.swift; sourceTree = "<group>"; };
 		D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inoutTableViewController.swift; sourceTree = "<group>"; };
@@ -138,10 +136,9 @@
 				525254BC1C52972100434EF4 /* LaunchScreen.storyboard */,
 				525254BF1C52972100434EF4 /* Info.plist */,
 				525254B71C52972100434EF4 /* SaveApp.xcdatamodeld */,
-				D42AFFD21C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift */,
 				D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */,
-				D42AFFD41C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift */,
 				D42AFFD51C562E7F00DC7A5E /* Incomes.swift */,
+				D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */,
 			);
 			path = SaveApp;
 			sourceTree = "<group>";
@@ -295,15 +292,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D42A007E1C5764D400DC7A5E /* IncomesFacade.swift in Sources */,
 				D42AFFDB1C56473800DC7A5E /* AddIncomeViewController.swift in Sources */,
 				D42AFFD71C562E7F00DC7A5E /* Outgoes.swift in Sources */,
 				525254EE1C52B01900434EF4 /* Offer.swift in Sources */,
 				D4EE39581C54D9DF009A8E7A /* inoutTableViewCell.swift in Sources */,
-				D42AFFD81C562E7F00DC7A5E /* Incomes+CoreDataProperties.swift in Sources */,
 				D42AFFD91C562E7F00DC7A5E /* Incomes.swift in Sources */,
 				D4EE39561C53B1DF009A8E7A /* UserViewController.swift in Sources */,
 				525254B31C52972100434EF4 /* ViewController.swift in Sources */,
-				D42AFFD61C562E7F00DC7A5E /* Outgoes+CoreDataProperties.swift in Sources */,
 				525254E81C529FAE00434EF4 /* CollaboratorTableViewCell.swift in Sources */,
 				525254B91C52972100434EF4 /* SaveApp.xcdatamodeld in Sources */,
 				D4EE39541C53B1BC009A8E7A /* inoutTableViewController.swift in Sources */,

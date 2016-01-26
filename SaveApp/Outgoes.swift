@@ -12,6 +12,9 @@ import CoreData
 @objc(Outgoes)
 class Outgoes: NSManagedObject {
 
-
+    @NSManaged var concept: String?
+    @NSManaged var quantity: NSNumber?
+    @NSManaged var dateOutgo: NSDate?
+    @NSManaged var type: String?
 
 }
