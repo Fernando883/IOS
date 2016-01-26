@@ -12,6 +12,8 @@ class UserViewController: UIViewController {
     
     //MARK: Properties
     @IBOutlet weak var incomesImage: UIImageView!
+    @IBOutlet weak var offerButton: UIBarButtonItem!
+    @IBOutlet weak var outgoesImage: UIImageView!
     
     
     override func viewDidLoad() {
@@ -33,25 +35,35 @@ class UserViewController: UIViewController {
         }
     }
 
+    @IBAction func openOffers(sender: UIBarButtonItem) {
+
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let inoutViewController = segue.destinationViewController as! inoutTableViewController
-        if segue.identifier == "incomesTableSegue"{
+            if segue.identifier == "incomesTableSegue"{
+                
+                let inoutViewController = segue.destinationViewController as! inoutTableViewController
             
-            inoutViewController.outgo = false
-            inoutViewController.navigationBar.title = "Incomes"
+                inoutViewController.outgo = false
+                inoutViewController.navigationBar.title = "Incomes"
             
-        }else if segue.identifier == "outgoTableSegue"{
-            inoutViewController.outgo = true
-            inoutViewController.navigationBar.title = "Outgoes"
+            }else if segue.identifier == "outgoTableSegue"{
+                
+                let inoutViewController = segue.destinationViewController as! inoutTableViewController
+            
+                inoutViewController.outgo = true
+                inoutViewController.navigationBar.title = "Outgoes"
+                
+            }else if segue.identifier == "offersViewSegue"{
+               // let offerViewController = segue.destinationViewController as! CollaboratorTableViewController
+                
+                
         }
         
-        
     }
-    
 
 }
