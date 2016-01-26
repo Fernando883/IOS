@@ -21,6 +21,9 @@
 		525254EE1C52B01900434EF4 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254ED1C52B01900434EF4 /* Offer.swift */; };
 		D42A007E1C5764D400DC7A5E /* IncomesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */; };
 		D42A00801C57714400DC7A5E /* outgoesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A007F1C57714400DC7A5E /* outgoesFacade.swift */; };
+		D42A00861C5778D700DC7A5E /* AddOutgoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A00851C5778D700DC7A5E /* AddOutgoViewController.swift */; };
+		D42A00891C577A6B00DC7A5E /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A00871C577A6B00DC7A5E /* SSRadioButtonsController.swift */; };
+		D42A008A1C577A6B00DC7A5E /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A00881C577A6B00DC7A5E /* SSRadioButton.swift */; };
 		D42AFFD71C562E7F00DC7A5E /* Outgoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */; };
 		D42AFFD91C562E7F00DC7A5E /* Incomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD51C562E7F00DC7A5E /* Incomes.swift */; };
 		D42AFFDB1C56473800DC7A5E /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFDA1C56473800DC7A5E /* AddIncomeViewController.swift */; };
@@ -67,6 +70,9 @@
 		525254ED1C52B01900434EF4 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomesFacade.swift; sourceTree = "<group>"; };
 		D42A007F1C57714400DC7A5E /* outgoesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = outgoesFacade.swift; sourceTree = "<group>"; };
+		D42A00851C5778D700DC7A5E /* AddOutgoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOutgoViewController.swift; sourceTree = "<group>"; };
+		D42A00871C577A6B00DC7A5E /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
+		D42A00881C577A6B00DC7A5E /* SSRadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
 		D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outgoes.swift; sourceTree = "<group>"; };
 		D42AFFD51C562E7F00DC7A5E /* Incomes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incomes.swift; sourceTree = "<group>"; };
 		D42AFFDA1C56473800DC7A5E /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddIncomeViewController.swift; path = ../AddIncomeViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +131,7 @@
 			children = (
 				D4EE39551C53B1DF009A8E7A /* UserViewController.swift */,
 				D42AFFDA1C56473800DC7A5E /* AddIncomeViewController.swift */,
+				D42A00851C5778D700DC7A5E /* AddOutgoViewController.swift */,
 				D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */,
 				D4EE39571C54D9DF009A8E7A /* inoutTableViewCell.swift */,
 				525254E91C52A48C00434EF4 /* RatingControl.swift */,
@@ -140,6 +147,8 @@
 				525254B71C52972100434EF4 /* SaveApp.xcdatamodeld */,
 				D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */,
 				D42AFFD51C562E7F00DC7A5E /* Incomes.swift */,
+				D42A00871C577A6B00DC7A5E /* SSRadioButtonsController.swift */,
+				D42A00881C577A6B00DC7A5E /* SSRadioButton.swift */,
 				D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */,
 				D42A007F1C57714400DC7A5E /* outgoesFacade.swift */,
 			);
@@ -297,7 +306,10 @@
 			files = (
 				D42A007E1C5764D400DC7A5E /* IncomesFacade.swift in Sources */,
 				D42AFFDB1C56473800DC7A5E /* AddIncomeViewController.swift in Sources */,
+				D42A00861C5778D700DC7A5E /* AddOutgoViewController.swift in Sources */,
 				D42AFFD71C562E7F00DC7A5E /* Outgoes.swift in Sources */,
+				D42A00891C577A6B00DC7A5E /* SSRadioButtonsController.swift in Sources */,
+				D42A008A1C577A6B00DC7A5E /* SSRadioButton.swift in Sources */,
 				525254EE1C52B01900434EF4 /* Offer.swift in Sources */,
 				D4EE39581C54D9DF009A8E7A /* inoutTableViewCell.swift in Sources */,
 				D42AFFD91C562E7F00DC7A5E /* Incomes.swift in Sources */,

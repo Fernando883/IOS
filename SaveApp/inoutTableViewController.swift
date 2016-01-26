@@ -12,6 +12,7 @@ import CoreData
 class inoutTableViewController: UITableViewController {
     
     let incomeFacade = IncomesFacade()
+    let outgoesFacade = OutgoesFacade()
 
     var outgo: Bool?
     
@@ -38,8 +39,12 @@ class inoutTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        if outgo == true{
+            outgoes = outgoesFacade.getOutgoes()
+        }else if outgo == false{
+            incomes = incomeFacade.getIncomes()
+        }
         
-        incomes = incomeFacade.getIncomes()
         
     }
 
@@ -84,6 +89,14 @@ class inoutTableViewController: UITableViewController {
         
     }
     
+    @IBAction func unwindToAddOutgoList(sendeR: UIStoryboardSegue){
+        
+        outgoes = outgoesFacade.getOutgoes()
+        
+        tableView.reloadData()
+        
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellIdentifier = "inoutCellView"
@@ -92,6 +105,16 @@ class inoutTableViewController: UITableViewController {
         if outgo == true{
             
             let outgo = outgoes[indexPath.row]
+            
+            if outgo.type == "Fijo"{
+//                cell.conceptTextLabel.textColor = UIColor.redColor()
+//                cell.quantityTextLabel.textColor = UIColor.redColor()
+//                cell.dateTextLabel.textColor = UIColor.redColor()
+                
+                cell.backgroundColor = UIColor(red: 0.88, green: 0.0, blue: 0.2, alpha: 0.6)
+            }else if outgo.type == "Variable"{
+                cell.backgroundColor = UIColor(red: 0.0, green: 0.8, blue: 0.2, alpha: 0.6)
+            }
             
             cell.conceptTextLabel.text = outgo.concept
             cell.quantityTextLabel.text = outgo.quantity?.stringValue
