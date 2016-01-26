@@ -765,7 +765,7 @@
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="jDB-pQ-46B" userLabel="AddOutgo">
                                 <connections>
-                                    <segue destination="3W9-Vd-c9m" kind="show" identifier="addOutgoSegue" id="oQK-iv-OoV">
+                                    <segue destination="jSC-0I-XGY" kind="show" identifier="addOutgoSegue" id="oQK-iv-OoV">
                                         <nil key="action"/>
                                     </segue>
                                 </connections>
@@ -850,10 +850,10 @@
             </objects>
             <point key="canvasLocation" x="5515" y="-332"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Outgo-->
         <scene sceneID="VXC-si-9DI">
             <objects>
-                <viewController id="3W9-Vd-c9m" sceneMemberID="viewController">
+                <viewController id="3W9-Vd-c9m" customClass="AddOutgoViewController" customModule="SaveApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ACe-k3-p6A"/>
                         <viewControllerLayoutGuide type="bottom" id="aXb-rf-8bL"/>
@@ -862,17 +862,100 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outgoes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq9-mo-Xlb">
-                                <rect key="frame" x="109" y="141" width="66" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oJ1-y9-s1I">
+                                <rect key="frame" x="30" y="74" width="540" height="346"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fDV-Hz-viH">
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="306"/>
+                                        <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Concept of outgo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Xx-Cn-IJS">
+                                                <rect key="frame" x="203" y="0.0" width="134" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Quantity in €" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7UK-eP-ODt">
+                                                <rect key="frame" x="223" y="45" width="94" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="pbW-FR-rcM">
+                                                <rect key="frame" x="110" y="90" width="320" height="216"/>
+                                                <date key="date" timeIntervalSinceReferenceDate="475415759.59839398">
+                                                    <!--2016-01-25 11:55:59 +0000-->
+                                                </date>
+                                                <locale key="locale" localeIdentifier="es"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FFH-fO-Jkt">
+                                        <rect key="frame" x="0.0" y="306" width="540" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3G-Wo-I92" customClass="SSRadioButton" customModule="SaveApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <state key="normal" title="Fijo"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybV-ga-w3d" customClass="SSRadioButton" customModule="SaveApp" customModuleProvider="target">
+                                                <rect key="frame" x="270" y="0.0" width="270" height="40"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                                                <state key="normal" title="Variable"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="circleRadius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="circleColor">
+                                                        <color key="value" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ybV-ga-w3d" firstAttribute="width" secondItem="j3G-Wo-I92" secondAttribute="width" id="QnP-Gr-sq9"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fDV-Hz-viH" secondAttribute="trailing" id="9mV-Hc-xdF"/>
+                                    <constraint firstItem="FFH-fO-Jkt" firstAttribute="width" secondItem="fDV-Hz-viH" secondAttribute="width" id="H8d-rZ-bsX"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oJ1-y9-s1I" firstAttribute="top" secondItem="ACe-k3-p6A" secondAttribute="bottom" constant="10" id="9vB-bc-ByM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oJ1-y9-s1I" secondAttribute="trailing" constant="10" id="f0N-xP-yH6"/>
+                            <constraint firstItem="oJ1-y9-s1I" firstAttribute="leading" secondItem="jVb-vM-Vaq" secondAttribute="leadingMargin" constant="10" id="rdX-ds-F1S"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Add Outgo" id="G0l-k4-6YU">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="YvU-9y-4MR">
+                            <connections>
+                                <action selector="cancel:" destination="3W9-Vd-c9m" id="3dP-di-0kT"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="UZJ-AZ-Xf0">
+                            <connections>
+                                <segue destination="Aah-gZ-7fd" kind="unwind" unwindAction="unwindToAddOutgoList:" id="mUh-yH-igF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="conceptTextField" destination="8Xx-Cn-IJS" id="7to-2R-61N"/>
+                        <outlet property="dateDatePicker" destination="pbW-FR-rcM" id="30d-HX-hkd"/>
+                        <outlet property="fijoRadioButton" destination="j3G-Wo-I92" id="1ZE-ev-jes"/>
+                        <outlet property="quantityTextField" destination="7UK-eP-ODt" id="GHj-bg-95H"/>
+                        <outlet property="saveButton" destination="UZJ-AZ-Xf0" id="GI8-Jf-6gX"/>
+                        <outlet property="variableRadioButton" destination="ybV-ga-w3d" id="35a-uF-Eys"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hr3-nZ-iL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Aah-gZ-7fd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4602" y="590"/>
         </scene>
