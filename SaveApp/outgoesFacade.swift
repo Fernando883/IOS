@@ -20,20 +20,20 @@ class OutgoesFacade{
         
         outgo.concept = concept
         outgo.quantity = quantity
-        outgo.dateIncome = dateIncome
-        
+        outgo.dateOutgo = dateOutgo
+        outgo.type = type
         try! managedContext.save()
         
     }
     
     
-    func getIncomes() -> [Incomes]{
+    func getOutgoes() -> [Outgoes]{
         
-        let fetchRequest = NSFetchRequest(entityName: "Incomes")
+        let fetchRequest = NSFetchRequest(entityName: "Outgoes")
         
-        let results = try! managedContext.executeFetchRequest(fetchRequest) as! [Incomes]
+        let results = try! managedContext.executeFetchRequest(fetchRequest) as! [Outgoes]
         
         return results
         
+    }
 }
-   

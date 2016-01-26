@@ -504,10 +504,10 @@
                                 <rect key="frame" x="30" y="151" width="540" height="395"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="anz-ho-nO3">
-                                        <rect key="frame" x="0.0" y="0.0" width="540" height="115"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="540" height="200"/>
                                         <subviews>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Gastos" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-m6-quj">
-                                                <rect key="frame" x="0.0" y="0.0" width="260" height="115"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="200"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="J1s-0h-E5z"/>
@@ -517,7 +517,7 @@
                                                 </connections>
                                             </imageView>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Ingresos" translatesAutoresizingMaskIntoConstraints="NO" id="StC-u8-78X">
-                                                <rect key="frame" x="280" y="0.0" width="260" height="115"/>
+                                                <rect key="frame" x="280" y="0.0" width="260" height="200"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="Js0-HM-GCq"/>
@@ -533,25 +533,25 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TuQ-md-W6h">
-                                        <rect key="frame" x="0.0" y="195" width="540" height="200"/>
+                                        <rect key="frame" x="0.0" y="280" width="540" height="115"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Productos" translatesAutoresizingMaskIntoConstraints="NO" id="JbW-XE-NfL">
-                                                <rect key="frame" x="0.0" y="0.0" width="260" height="200"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="260" height="115"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="SCc-hB-pGV"/>
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SNo-yX-Olf">
-                                                <rect key="frame" x="280" y="0.0" width="260" height="150"/>
+                                                <rect key="frame" x="280" y="0.0" width="260" height="52"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh4-13-1zi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="70"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="260" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApH-Ep-6V7">
-                                                        <rect key="frame" x="0.0" y="80" width="260" height="70"/>
+                                                        <rect key="frame" x="0.0" y="31" width="260" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -765,9 +765,7 @@
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="jDB-pQ-46B" userLabel="AddOutgo">
                                 <connections>
-                                    <segue destination="jSC-0I-XGY" kind="show" identifier="addOutgoSegue" id="oQK-iv-OoV">
-                                        <nil key="action"/>
-                                    </segue>
+                                    <segue destination="lbQ-9C-ka6" kind="show" identifier="addOutgoSegue" id="hLJ-Rr-jlQ"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -862,7 +860,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oJ1-y9-s1I">
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oJ1-y9-s1I">
                                 <rect key="frame" x="30" y="74" width="540" height="346"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fDV-Hz-viH">
@@ -957,7 +955,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hr3-nZ-iL1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Aah-gZ-7fd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4602" y="590"/>
+            <point key="canvasLocation" x="5414" y="590"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="o3C-jV-5Hk">
@@ -1013,6 +1011,24 @@
             </objects>
             <point key="canvasLocation" x="4571" y="-332"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="EVv-uH-Pgf">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lbQ-9C-ka6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eQB-db-oG1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3W9-Vd-c9m" kind="relationship" relationship="rootViewController" id="JGS-Xg-OWa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lse-Lv-HJc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4602" y="590"/>
+        </scene>
     </scenes>
     <resources>
         <image name="DefaultPhoto" width="540" height="540"/>
@@ -1022,6 +1038,6 @@
         <image name="Productos" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AdU-v4-WcZ"/>
+        <segue reference="yOd-ka-Z0h"/>
     </inferredMetricsTieBreakers>
 </document>

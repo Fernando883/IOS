@@ -47,9 +47,9 @@ class AddOutgoViewController: UIViewController, SSRadioButtonControllerDelegate 
     
     @IBAction func cancel(sender: UIBarButtonItem) {
         
-        let isPresentingAddIncomeMode = presentingViewController is UINavigationController
+        let isPresentingAddOutgoMode = presentingViewController is UINavigationController
         
-        if isPresentingAddIncomeMode {
+        if isPresentingAddOutgoMode {
             dismissViewControllerAnimated(true, completion: nil)
         } else {
             navigationController!.popViewControllerAnimated(true)
