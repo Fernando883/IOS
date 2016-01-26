@@ -20,6 +20,7 @@
 		525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */; };
 		525254EE1C52B01900434EF4 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 525254ED1C52B01900434EF4 /* Offer.swift */; };
 		D42A007E1C5764D400DC7A5E /* IncomesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */; };
+		D42A00801C57714400DC7A5E /* outgoesFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42A007F1C57714400DC7A5E /* outgoesFacade.swift */; };
 		D42AFFD71C562E7F00DC7A5E /* Outgoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */; };
 		D42AFFD91C562E7F00DC7A5E /* Incomes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFD51C562E7F00DC7A5E /* Incomes.swift */; };
 		D42AFFDB1C56473800DC7A5E /* AddIncomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42AFFDA1C56473800DC7A5E /* AddIncomeViewController.swift */; };
@@ -65,6 +66,7 @@
 		525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollaboratorTableViewController.swift; sourceTree = "<group>"; };
 		525254ED1C52B01900434EF4 /* Offer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomesFacade.swift; sourceTree = "<group>"; };
+		D42A007F1C57714400DC7A5E /* outgoesFacade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = outgoesFacade.swift; sourceTree = "<group>"; };
 		D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Outgoes.swift; sourceTree = "<group>"; };
 		D42AFFD51C562E7F00DC7A5E /* Incomes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Incomes.swift; sourceTree = "<group>"; };
 		D42AFFDA1C56473800DC7A5E /* AddIncomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddIncomeViewController.swift; path = ../AddIncomeViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				D42AFFD31C562E7F00DC7A5E /* Outgoes.swift */,
 				D42AFFD51C562E7F00DC7A5E /* Incomes.swift */,
 				D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */,
+				D42A007F1C57714400DC7A5E /* outgoesFacade.swift */,
 			);
 			path = SaveApp;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				525254EC1C52AFA700434EF4 /* CollaboratorTableViewController.swift in Sources */,
 				525254EA1C52A48C00434EF4 /* RatingControl.swift in Sources */,
 				525254B11C52972100434EF4 /* AppDelegate.swift in Sources */,
+				D42A00801C57714400DC7A5E /* outgoesFacade.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
