@@ -46,13 +46,15 @@ class OutgoesFacade{
         try! managedContext.save()
     }
     
-    func insertOutgo (idoutgo: Int,concept: String, quantity: Float?, dateOutgo: NSDate, type: String){
+    func insertOutgo (idoutgo: Int,concept: String, quantity: Float?, dateOutgo: String, type: String){
         
         let outgo = NSEntityDescription.insertNewObjectForEntityForName("Outgoes", inManagedObjectContext: managedContext) as! Outgoes
         
         outgo.concept = concept
         outgo.quantity = quantity
-        outgo.dateOutgo = dateOutgo
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        outgo.dateOutgo = dateFormatter.dateFromString(dateOutgo)
         outgo.type = type
         outgo.id_Outgo = idoutgo
         
@@ -114,14 +116,12 @@ class OutgoesFacade{
     func convertJsontoArrayOutgoes(json: AnyObject?) -> [Outgoes]{
         
         let data = json as! [AnyObject]
-        var outgoes = [Outgoes]()
+        var outgoes2 = [Outgoes]()
         var i: Int=1
         let outgo = NSEntityDescription.insertNewObjectForEntityForName("Outgoes", inManagedObjectContext: managedContext) as! Outgoes
-       // print("holaaaanoussairrrr",data.count)
+        
         for outg in data{
-            print(outg["concepto"])
             outgo.concept = outg["concepto"] as? String
-            print("holaaaaaaa")
             outgo.quantity = outg.valueForKey("cantidad")!.integerValue
             let fecha = outg["fecha"] as! String
             let dateFormatter = NSDateFormatter()
@@ -131,10 +131,10 @@ class OutgoesFacade{
             outgo.id_Outgo = outg.valueForKey("idGasto")!.integerValue
             outgo.type = outg["tipo"] as? String
             //income = income.newIncome(concepto, quantity: cantidad, dateIncome: date!, id_Income: idIncome)
-            outgoes.append(outgo)
+            outgoes2.append(outgo)
         }
         
-        return outgoes
+        return outgoes2
     }
     
     func loadFromWebService(idUser: NSNumber){
@@ -143,18 +143,14 @@ class OutgoesFacade{
         
         let outgoes = convertJsontoArrayOutgoes(json)
 
-        /*for(var i=0; i < outgoes.count; ++i){
-            insertOutgo((outgoes[i].id_Outgo?.integerValue)!, concept: outgoes[i].concept!, quantity: outgoes[i].quantity?.floatValue, dateOutgo: outgoes[i].dateOutgo!, type: outgoes[i].type!)
-            print("\n\n\n",outgoes[i].concept,"\n\n\n")
-        }*/
-        
-        for outgo in outgoes{
-            print("\n\n\n",outgo.concept,"\n\n\n")
-//            
-//            try! managedContext.save()
-//           // insertOutgo((outgo.id_Outgo?.integerValue)!, concept: outgo.concept!, quantity: outgo.quantity?.floatValue, dateOutgo: outgo.dateOutgo!, type: outgo.type!)
-//            
-      }
+        for(var i=0; i < outgoes.count - 1; ++i){
+            if let item = json[i]{
+                insertOutgo((item["idGasto"]) as! Int, concept: item["concepto"] as! String, quantity: item["cantidad"] as? Float, dateOutgo: item["fecha"] as! String, type: item["tipo"] as! String)
+                
+                
+            }
+            
+        }
         
     }
 }

@@ -43,13 +43,15 @@ class IncomesFacade{
         try! managedContext.save()
     }
     
-    func insertIncome (idincome: Int,concept: String, quantity: Float?, dateIncome: NSDate){
+    func insertIncome (idincome: Int,concept: String, quantity: Float?, dateIncome: String){
         
         let income = NSEntityDescription.insertNewObjectForEntityForName("Incomes", inManagedObjectContext: managedContext) as! Incomes
         
         income.concept = concept
         income.quantity = quantity
-        income.dateIncome = dateIncome
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        income.dateIncome = dateFormatter.dateFromString(dateIncome)
         income.id_Income = idincome
         
         try! managedContext.save()
@@ -138,14 +140,12 @@ class IncomesFacade{
         
         let incomes = convertJsontoArrayIncomes(json)
         
-        for income in incomes{
+        for(var i=0; i < incomes.count - 1; ++i){
             
+            if let item = json[i]{
+                insertIncome(item["idIngreso"] as! Int,concept: item["concepto"] as! String, quantity: item["cantidad"] as! Float, dateIncome: item["fecha"] as! String)
             
-            try! managedContext.save()
-           // insertIncome((income.id_Income?.integerValue)!,concept: income.concept!, quantity: income.quantity?.floatValue, dateIncome: income.dateIncome!)
-            
+            }
         }
-        
     }
-    
 }
