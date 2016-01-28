@@ -37,36 +37,55 @@ class SignUpViewController: UIViewController {
 
     // MARK: - Navigation
     
+    
     @IBAction func sendNewUser(sender: UIButton) {
         
-        var newNickname : String = nickName.text!
+
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
         
-        var newPassword : String = password.text!
-        
-        var confirmPassword : String = confirmPwd.text!
-        
-        if newNickname.isEmpty{
-            if newPassword.isEmpty{
-                if confirmPassword.isEmpty{
-                    //ALERTA: FILL ALL THE TEXT FIELDS
+        if identifier == "signUpSegue"{
+            
+            var newNickname : String = nickName.text!
+            
+            var newPassword : String = password.text!
+            
+            var confirmPassword : String = confirmPwd.text!
+            
+            if newNickname.isEmpty{
+                if newPassword.isEmpty{
+                    if confirmPassword.isEmpty{
+                        //ALERTA: FILL ALL THE TEXT FIELDS
+                        return false
+                    }
                 }
-            }
-        }else{
-            if (newPassword as NSString).isEqualToString(confirmPassword){
-                /*
-                    find user bynickname -> si devuelve nil -> no exite seguir adelante: POST
-                                            si devuelve user -> ALERTA: ya existe
-                */
-                print("Funciona")
-                communicationFacade.signUp(newNickname, password: newPassword)
-                
-                
             }else{
-                //ALERTA: PASSWORD NOT CONFIRMED
-                print("no funciona")
+                if (newPassword as NSString).isEqualToString(confirmPassword) && (!newPassword.isEmpty) && (!confirmPassword.isEmpty){
+                    /*
+                    find user bynickname -> si devuelve nil -> no exite seguir adelante: POST
+                    si devuelve user -> ALERTA: ya existe
+                    */
+                    print("Funciona")
+                    if communicationFacade.signUp(newNickname, password: newPassword){
+                        print("Registrado")
+                        return true
+                    }else{
+                        print("Usuario ya existe")
+                        return false
+                    }
+                    
+                    
+                }else{
+                    //ALERTA: PASSWORD NOT CONFIRMED
+                    print("no funciona")
+                    return false
+                }
+             
             }
-            //idUser = communicationFacade.checkLogin(nickIntroduced, password: passwordIntroduced)
+            return false
         }
+        return false
     }
     
     /*

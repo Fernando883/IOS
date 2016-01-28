@@ -492,6 +492,7 @@
                                                 </state>
                                                 <connections>
                                                     <action selector="sendNewUser:" destination="bMW-g8-Kds" eventType="touchUpInside" id="ec7-Gk-D9c"/>
+                                                    <segue destination="1NX-OM-EOf" kind="show" identifier="signUpSegue" id="aPM-SY-tGv"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -617,7 +618,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="zcg-CS-Jp4">
                                                 <rect key="frame" x="0.0" y="0.0" width="150" height="190"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1DE02A6B-206B-41E0-AC98-8A31C756A41B" translatesAutoresizingMaskIntoConstraints="NO" id="qsE-Iy-Gu2">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3570559B-A3BA-46C2-9DF1-A213ADF919F4" translatesAutoresizingMaskIntoConstraints="NO" id="qsE-Iy-Gu2">
                                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="150" id="XhD-VL-ZXp"/>
@@ -1080,7 +1081,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1DE02A6B-206B-41E0-AC98-8A31C756A41B" width="256" height="256">
+        <image name="3570559B-A3BA-46C2-9DF1-A213ADF919F4" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
 GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
@@ -1102,6 +1103,7 @@ AAAB+g
         <image name="Ingresos" width="500" height="521"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="aPM-SY-tGv"/>
         <segue reference="bkg-09-ntX"/>
         <segue reference="MST-70-fxA"/>
         <segue reference="wFh-d8-kIj"/>

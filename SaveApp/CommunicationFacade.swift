@@ -115,8 +115,8 @@ class CommunicationFacade{
     
     func sendPost (callback: (AnyObject) -> Void){
         session.dataTaskWithRequest(request){(data,response,error) -> Void in
-            // let reply = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
-            callback(response!)
+            let reply = try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
+            callback(reply)
             
             }.resume()
         
@@ -137,7 +137,7 @@ class CommunicationFacade{
         
         sendPost() { (json: AnyObject) -> Void in
             dispatch_async(dispatch_get_main_queue(), {
-            print("\n\n\n","tusmuertos","\n\n\n")
+            print("\n\n\n","income inserted","\n\n\n")
             })}
         
     }
@@ -247,7 +247,24 @@ class CommunicationFacade{
     }
     
     func signUp(nickname: String, password: String) -> Bool{
-        return true
+        
+        let json = ["idUser":"","nickname":nickname,"password":password]
+        
+        configPostRequest("model.usuario/signup", json: json)
+        
+        let semaphore = dispatch_semaphore_create(0)
+        
+        var iduser: Int?
+        
+        sendPost() { (response: AnyObject) -> Void in
+            //dispatch_async(dispatch_get_main_queue(), {
+                self.idUser = response["idUser"] as! Int
+                dispatch_semaphore_signal(semaphore)
+            //})
+        }
+        
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        return idUser?.integerValue > -1
     }
     
     
