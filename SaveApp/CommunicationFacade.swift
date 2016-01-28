@@ -45,6 +45,24 @@ class CommunicationFacade{
         return incomes!
     }
     
+    func getOutgoesFromUser(id_User: NSNumber) -> AnyObject{
+        
+        
+        var outgoes: AnyObject?
+        configGetRequest("model.gastos/byuser/"+id_User.stringValue)
+        let semaphore = dispatch_semaphore_create(0)
+        sendRequest() { (json: AnyObject) -> Void in
+            //dispatch_async(dispatch_get_main_queue(), {
+            print("\n\n\n\n",json,"\n\n\n\n")
+            outgoes = json
+            dispatch_semaphore_signal(semaphore)
+            //})
+        }
+        
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        return outgoes!
+    }
+    
     func checkLogin(nickname: String, password: String) -> NSNumber{
     
         
@@ -64,6 +82,8 @@ class CommunicationFacade{
         dispatch_semaphore_wait(semaphore!, DISPATCH_TIME_FOREVER)
         return idUser!
     }
+    
+    
     
     func configGetRequest(query: String){
         

@@ -42,6 +42,18 @@ class IncomesFacade{
         
         try! managedContext.save()
     }
+    
+    func insertIncome (idincome: Int,concept: String, quantity: Float?, dateIncome: NSDate){
+        
+        let income = NSEntityDescription.insertNewObjectForEntityForName("Incomes", inManagedObjectContext: managedContext) as! Incomes
+        
+        income.concept = concept
+        income.quantity = quantity
+        income.dateIncome = dateIncome
+        income.id_Income = idincome
+        
+        try! managedContext.save()
+    }
 
     
     
@@ -118,6 +130,22 @@ class IncomesFacade{
         for outgo in results{
             managedContext.deleteObject(outgo)
         }
+    }
+    
+    func loadFromWebService(idUser: NSNumber){
+        
+        let json = communicationFacade.getIncomesFromUser(idUser)
+        
+        let incomes = convertJsontoArrayIncomes(json)
+        
+        for income in incomes{
+            
+            
+            try! managedContext.save()
+           // insertIncome((income.id_Income?.integerValue)!,concept: income.concept!, quantity: income.quantity?.floatValue, dateIncome: income.dateIncome!)
+            
+        }
+        
     }
     
 }

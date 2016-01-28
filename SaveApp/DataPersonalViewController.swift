@@ -19,6 +19,8 @@ class DataPersonalViewController: UIViewController {
     let userFacade = UserFacade()
     var idUser: NSNumber?
     let communicationFacade = CommunicationFacade()
+    let incomesFacade = IncomesFacade()
+    let outgoesFacade = OutgoesFacade()
     
     @IBOutlet weak var NicknameTextField: UITextField!
     @IBOutlet weak var PasswordTextField: UITextField!
@@ -48,10 +50,10 @@ class DataPersonalViewController: UIViewController {
     
     
     override func viewDidAppear(animated: Bool) {
-        print ("holaaaaaa")
-        if userFacade.getIdUser() != 0 {
-        performSegueWithIdentifier("userPersonal", sender: self)
-        }
+//        print ("holaaaaaa")
+//        if userFacade.getIdUser() != 0 {
+//        performSegueWithIdentifier("userPersonal", sender: self)
+//        }
         
     }
 
@@ -117,9 +119,21 @@ class DataPersonalViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "validLoginSegue"{
+        if segue.identifier == "userPersonal"{
+            loadUserDatatoCoreData(idUser!)
             
         }
+        
+    }
+    
+    
+    func loadUserDatatoCoreData(idUser: NSNumber){
+        
+        
+        incomesFacade.deleteAll()
+        outgoesFacade.deleteAll()
+        incomesFacade.loadFromWebService(idUser)
+        outgoesFacade.loadFromWebService(idUser)
         
     }
 
