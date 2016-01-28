@@ -34,6 +34,10 @@ class AddOutgoViewController: UIViewController, SSRadioButtonControllerDelegate 
     var income: Incomes?
     var outgo: Outgoes?
     
+    var incomesFacade = IncomesFacade()
+    var outgoesFacade = OutgoesFacade()
+    var userFacade = UserFacade()
+    
     let communicationFacade = CommunicationFacade()
     
     override func viewDidLoad() {
@@ -125,6 +129,10 @@ class AddOutgoViewController: UIViewController, SSRadioButtonControllerDelegate 
                 }else{
                     outgoFacade.insertOutgo(concept, quantity: quantity, dateOutgo: dateOutgo, type: type!)
                     communicationFacade.insertOutgoWebService(concept, quantity: quantity!, dateOutgo:dateOutgo, type: type!)
+                    incomesFacade.deleteAll()
+                    outgoesFacade.deleteAll()
+                    incomesFacade.loadFromWebService(userFacade.getIdUser())
+                    outgoesFacade.loadFromWebService(userFacade.getIdUser())
                 }
                 
             }
@@ -142,6 +150,10 @@ class AddOutgoViewController: UIViewController, SSRadioButtonControllerDelegate 
                 }else{
                     incomeFacade.insertIncome(concept, quantity: quantity, dateIncome: dateIncome)
                     communicationFacade.insertIncomeWebService(concept, quantity: quantity!, dateIncome: dateIncome)
+                    incomesFacade.deleteAll()
+                    outgoesFacade.deleteAll()
+                    incomesFacade.loadFromWebService(userFacade.getIdUser())
+                    outgoesFacade.loadFromWebService(userFacade.getIdUser())
                 }
             }
         }

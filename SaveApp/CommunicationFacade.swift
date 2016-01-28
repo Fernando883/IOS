@@ -170,5 +170,15 @@ class CommunicationFacade{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     }
     
+    func deleteOutgoFromWebService(outgo: Outgoes){
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        let json = ["idGasto":outgo.id_Outgo,"concepto":outgo.concept, "cantidad":outgo.quantity, "fecha":dateFormatter.stringFromDate(outgo.dateOutgo!), "idUserGasto":["idUser":userFacade.getIdUser(), "nickname":userFacade.getNickname(),"password":userFacade.getPassword()], "tipo":outgo.type]
+
+        
+    }
+    
     
 }

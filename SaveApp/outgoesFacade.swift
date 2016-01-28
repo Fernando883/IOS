@@ -78,9 +78,13 @@ class OutgoesFacade{
         
         let deleteObject = results.removeAtIndex(indexDelete)
         
+        communicationFacade.deleteOutgoFromWebService(deleteObject)
+        
         managedContext.deleteObject(deleteObject)
         
         try! managedContext.save()
+        
+        
         
     }
     
