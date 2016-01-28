@@ -386,7 +386,7 @@
                                                         </state>
                                                         <connections>
                                                             <action selector="SignIn:" destination="1NX-OM-EOf" eventType="touchUpInside" id="QwL-t1-I42"/>
-                                                            <segue destination="Clt-K5-RI1" kind="show" id="c2F-3E-IQ4"/>
+                                                            <segue destination="Clt-K5-RI1" kind="show" identifier="userPersonal" id="c2F-3E-IQ4"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="80" placeholderIntrinsicHeight="60" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hj3-ei-uam">
@@ -400,7 +400,7 @@
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="bMW-g8-Kds" kind="show" id="lbc-iV-1sE"/>
+                                                            <segue destination="bMW-g8-Kds" kind="show" identifier="signUp" id="lbc-iV-1sE"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -490,6 +490,9 @@
                                                 <state key="normal" title="SEND">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="sendNewUser:" destination="bMW-g8-Kds" eventType="touchUpInside" id="ec7-Gk-D9c"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -504,6 +507,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="confirmPwd" destination="RH6-AT-RiH" id="rgA-Wy-cXK"/>
+                        <outlet property="nickName" destination="las-JR-ZJ0" id="Sq3-hS-eZe"/>
+                        <outlet property="password" destination="2Ir-GC-0M9" id="f9W-yt-ez9"/>
                         <outlet property="sendButton" destination="zCk-V6-5XX" id="wIY-5H-nzJ"/>
                         <outlet property="signUp" destination="aAK-bD-qRf" id="3N6-0n-Pbw"/>
                     </connections>
