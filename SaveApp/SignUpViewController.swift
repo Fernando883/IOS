@@ -46,12 +46,19 @@ class SignUpViewController: UIViewController {
         if newNickname.isEmpty{
             if newPassword.isEmpty{
                 if confirmPassword.isEmpty{
+                    //ALERTA: FILL ALL THE TEXT FIELDS
                 }
             }
         }else{
-            if newPassword == confirmPwd{
+            if (newPassword as NSString).isEqualToString(confirmPassword){
+                /*
+                    find user bynickname -> si devuelve nil -> no exite seguir adelante: POST
+                                            si devuelve user -> ALERTA: ya existe
+                */
                 print("Funciona")
+                
             }else{
+                //ALERTA: PASSWORD NOT CONFIRMED
                 print("no funciona")
             }
             //idUser = communicationFacade.checkLogin(nickIntroduced, password: passwordIntroduced)
