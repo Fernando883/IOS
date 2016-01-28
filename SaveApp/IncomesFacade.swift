@@ -14,7 +14,17 @@ class IncomesFacade{
     
      let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    func saveIncome (concept: String, quantity: Float?, dateIncome: NSDate){
+    
+    func saveIncome (newIncome: Incomes, index: NSIndexPath){
+        
+        var incomes = getIncomes()
+        
+        incomes[index.row] = newIncome
+        
+        try! managedContext.save()
+    }
+    
+    func insertIncome (concept: String, quantity: Float?, dateIncome: NSDate){
         
         let income = NSEntityDescription.insertNewObjectForEntityForName("Incomes", inManagedObjectContext: managedContext) as! Incomes
         
@@ -22,9 +32,15 @@ class IncomesFacade{
         income.quantity = quantity
         income.dateIncome = dateIncome
         
-        try! managedContext.save()
+        let incomes = getIncomes()
+        var newid = 1
+        newid = (incomes[incomes.count - 1].id_Icome?.integerValue)! + 1
         
+        income.id_Icome = newid
+        
+        try! managedContext.save()
     }
+
     
     
     func getIncomes() -> [Incomes]{
@@ -34,6 +50,18 @@ class IncomesFacade{
         let results = try! managedContext.executeFetchRequest(fetchRequest) as! [Incomes]
         
         return results
+        
+    }
+    
+    func deleteIncomes(indexDelete: Int){
+        
+        var results = getIncomes()
+        
+        let deleteObject = results.removeAtIndex(indexDelete)
+        
+        managedContext.deleteObject(deleteObject)
+        
+        try! managedContext.save()
         
     }
     

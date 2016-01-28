@@ -16,15 +16,22 @@ class inoutTableViewController: UITableViewController {
 
     var outgo: Bool?
     
+    @IBOutlet weak var edit: UIBarButtonItem!
+    
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var addIncomeButton: UIBarButtonItem!
     @IBOutlet weak var addOutgoButton: UIBarButtonItem!
+    
+    @IBOutlet weak var add: UIBarButtonItem!
     
     var incomes = [Incomes]()
     var outgoes = [Outgoes]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //edit = editButtonItem()
 
         // Do any additional setup after loading the view.
         if outgo == true{
@@ -60,8 +67,72 @@ class inoutTableViewController: UITableViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
+        if segue.identifier == "ShowItem" {
+            let addOutgoViewController = segue.destinationViewController as! AddOutgoViewController
+            addOutgoViewController.showItem = true
+            if outgo == true{
+                // Get the cell that generated this segue.
+                if let selectedOutgoCell = sender as? inoutTableViewCell {
+                    let indexPath = tableView.indexPathForCell(selectedOutgoCell)!
+                    let selectedOutgoes = outgoes[indexPath.row]
+                    addOutgoViewController.outgo = selectedOutgoes
+                    
+                }
+            }else {
+                if let selectedIncomeCell = sender as? inoutTableViewCell {
+                    let indexPath = tableView.indexPathForCell(selectedIncomeCell)!
+                    let selectedIncomes = incomes[indexPath.row]
+                    addOutgoViewController.income = selectedIncomes
+                    
+                }
+        }
+       
+        }else if segue.identifier == "AddOutgo" {
+            
+            let destiny = segue.destinationViewController as! UINavigationController
+            
+            destiny.title = "Add Outgo"
+            
+        }else if segue.identifier == "AddIncome" {
+            let destiny = segue.destinationViewController as! UINavigationController
+            
+            destiny.title = "Add Income"
+        }
         
     }
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    
+    
+    
+    // Override to support editing the table view.
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if(outgo == true){
+            if editingStyle == .Delete {
+                // Delete the row from the data source
+                
+                outgoesFacade.deleteOutgoes(indexPath.row)
+                outgoes.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                
+            }
+        }
+        else{
+            if editingStyle == .Delete {
+                // Delete the row from the data source
+                incomeFacade.deleteIncomes(indexPath.row)
+                incomes.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+
+        }
+     
+    }
+
     
     
     //MARK: Cell Configuration
@@ -79,23 +150,16 @@ class inoutTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func unwindToAddIncomeList(sender: UIStoryboardSegue) {
-            print("Fernando¡s calling")
-        
-        incomes = incomeFacade.getIncomes()
-        
-        tableView.reloadData()
-        
-        
-    }
+//    @IBAction func unwindToAddIncomeList(sender: UIStoryboardSegue) {
+//        
+//        incomes = incomeFacade.getIncomes()
+//        
+//        tableView.reloadData()
+//        
+//        
+//    }
     
-    @IBAction func unwindToAddOutgoList(sendeR: UIStoryboardSegue){
-        
-        outgoes = outgoesFacade.getOutgoes()
-        
-        tableView.reloadData()
-        
-    }
+
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -107,9 +171,6 @@ class inoutTableViewController: UITableViewController {
             let outgo = outgoes[indexPath.row]
             
             if outgo.type == "Fijo"{
-//                cell.conceptTextLabel.textColor = UIColor.redColor()
-//                cell.quantityTextLabel.textColor = UIColor.redColor()
-//                cell.dateTextLabel.textColor = UIColor.redColor()
                 
                 cell.backgroundColor = UIColor(red: 0.88, green: 0.0, blue: 0.2, alpha: 0.6)
             }else if outgo.type == "Variable"{
@@ -119,8 +180,9 @@ class inoutTableViewController: UITableViewController {
             cell.conceptTextLabel.text = outgo.concept
             cell.quantityTextLabel.text = outgo.quantity?.stringValue
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-mm-dd"
+            dateFormatter.dateFormat = "yyyy/MM/dd"
             cell.dateTextLabel.text = dateFormatter.stringFromDate(outgo.dateOutgo!)
+            
             
         }else if outgo == false{//If we want to see incomes
             
@@ -129,7 +191,7 @@ class inoutTableViewController: UITableViewController {
             cell.conceptTextLabel.text = income.concept
             cell.quantityTextLabel.text = income.quantity?.stringValue
             let dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-mm-dd"
+            dateFormatter.dateFormat = "yyyy/MM/dd"
             cell.dateTextLabel.text = dateFormatter.stringFromDate(income.dateIncome!)
             
         }
@@ -139,10 +201,38 @@ class inoutTableViewController: UITableViewController {
         return cell
     }
     
-    //Other funcs
-    
+    @IBAction func unwindToAddOutgoList(sender: UIStoryboardSegue){
+        
+        if outgo == true{
+            if let sourceViewController = sender.sourceViewController as? AddOutgoViewController, outgo = sourceViewController.outgo {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow  {
+                    
+                    outgoesFacade.saveOutgo(outgo, index: selectedIndexPath)
+                    tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                }
+                
+            }
+            
+            outgoes = outgoesFacade.getOutgoes()
+            
+            tableView.reloadData()
+        }else if outgo == false{
+            if let sourceViewController = sender.sourceViewController as? AddOutgoViewController, income = sourceViewController.income {
+                if let selectedIndexPath = tableView.indexPathForSelectedRow  {
+                    
+                    incomeFacade.saveIncome(income, index: selectedIndexPath)
+                    tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)
+                }
+                
+            }
+            
+            incomes = incomeFacade.getIncomes()
+            
+            tableView.reloadData()
+        }
+        
 
-    
-    
+
+    }
 
 }

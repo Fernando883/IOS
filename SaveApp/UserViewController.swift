@@ -12,14 +12,16 @@ class UserViewController: UIViewController {
     
     //MARK: Properties
     @IBOutlet weak var incomesImage: UIImageView!
-    @IBOutlet weak var offerButton: UIBarButtonItem!
     @IBOutlet weak var outgoesImage: UIImageView!
+    @IBOutlet weak var notificationImage: UIImageView!
     
+    @IBOutlet weak var balanceImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+       balanceImage.image = UIImage(named: "BalanceIncomes")
     }
     
     override func didReceiveMemoryWarning() {

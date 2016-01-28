@@ -1,22 +1,21 @@
 //
-//  Incomes+CoreDataProperties.swift
+//  Incomes.swift
 //  SaveApp
 //
 //  Created by MacBooKPro on 27/1/16.
 //  Copyright © 2016 MacBooKPro. All rights reserved.
 //
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
-//
 
 import Foundation
 import CoreData
 
-extension Incomes {
+@objc(Incomes)
+class Incomes: NSManagedObject {
 
+// Insert code here to add functionality to your managed object subclass
     @NSManaged var concept: String?
     @NSManaged var dateIncome: NSDate?
     @NSManaged var quantity: NSNumber?
-    @NSManaged var idIcome: NSNumber?
+    @NSManaged var id_Icome: NSNumber?
 
 }

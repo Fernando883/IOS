@@ -12,9 +12,19 @@ import UIKit
 
 class OutgoesFacade{
     
+    
     let managedContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
-    func saveOutgo (concept: String, quantity: Float?, dateOutgo: NSDate, type: String){
+    func saveOutgo (newoutgo: Outgoes, index: NSIndexPath){
+        
+        var outgoes = getOutgoes()
+        
+        outgoes[index.row] = newoutgo
+        
+        try! managedContext.save()
+    }
+    
+    func insertOutgo (concept: String, quantity: Float?, dateOutgo: NSDate, type: String){
         
         let outgo = NSEntityDescription.insertNewObjectForEntityForName("Outgoes", inManagedObjectContext: managedContext) as! Outgoes
         
@@ -22,8 +32,14 @@ class OutgoesFacade{
         outgo.quantity = quantity
         outgo.dateOutgo = dateOutgo
         outgo.type = type
-        try! managedContext.save()
         
+        let outgoes = getOutgoes()
+        var newid = 1
+        newid = (outgoes[outgoes.count - 1].id_Outgo?.integerValue)! + 1
+        
+        outgo.id_Outgo = newid
+        
+        try! managedContext.save()
     }
     
     
@@ -34,6 +50,18 @@ class OutgoesFacade{
         let results = try! managedContext.executeFetchRequest(fetchRequest) as! [Outgoes]
         
         return results
+        
+    }
+    
+    func deleteOutgoes(indexDelete: Int){
+        
+        var results = getOutgoes()
+        
+        let deleteObject = results.removeAtIndex(indexDelete)
+        
+        managedContext.deleteObject(deleteObject)
+        
+        try! managedContext.save()
         
     }
 }
