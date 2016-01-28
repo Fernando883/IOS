@@ -87,5 +87,13 @@ class UserViewController: UIViewController {
         }
         
     }
+    @IBAction func update(sender: UIBarButtonItem) {
+        
+        incomesFacade.deleteAll()
+        outgoesFacade.deleteAll()
+        incomesFacade.loadFromWebService(userFacade.getIdUser())
+        outgoesFacade.loadFromWebService(userFacade.getIdUser())
+        
+    }
 
 }

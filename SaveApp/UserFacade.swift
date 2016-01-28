@@ -33,14 +33,21 @@ class UserFacade{
         return results[1].nickname!
     }
     
+    func getPassword() -> String{
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        
+        let results = try! managedContext.executeFetchRequest(fetchRequest) as! [User]
+        
+        return results[1].password!
+    }
+    
     func getIdUser() -> Int{
         
         let fetchRequest = NSFetchRequest(entityName: "User")
         
         let results = try! managedContext.executeFetchRequest(fetchRequest) as! [User]
         
-        
-        print("holaaaaaa", results.count)
         if (results.count + 1) < 2 {
             return 0
             

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 
 
@@ -22,6 +23,8 @@ class CommunicationFacade{
     var request = NSMutableURLRequest()
     
     var reply: NSJSONSerialization?
+    
+    let userFacade = UserFacade()
 //    
 //    var semaphore: dispatch_semaphore_t?
     
@@ -108,6 +111,63 @@ class CommunicationFacade{
     }.resume()
         
         
+    }
+    
+    func sendPost (callback: (AnyObject) -> Void){
+        session.dataTaskWithRequest(request){(data,response,error) -> Void in
+            // let reply = NSString(data: data!, encoding: NSUTF8StringEncoding) as! String
+            callback(response!)
+            
+            }.resume()
+        
+        
+    }
+    
+    func insertIncomeWebService(concept: String, quantity: Float, dateIncome: NSDate){
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        let json = ["idIngreso":"","concepto":concept, "cantidad":quantity, "fecha":dateFormatter.stringFromDate(dateIncome), "idUserIngreso":["idUser":userFacade.getIdUser(), "nickname":userFacade.getNickname(),"password":userFacade.getPassword()]]
+        
+        
+        
+        configPostRequest("model.ingresos",json: json)
+
+        
+        sendPost() { (json: AnyObject) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+            print("\n\n\n","tusmuertos","\n\n\n")
+            })}
+        
+    }
+    
+    func insertOutgoWebService(concept: String, quantity: Float, dateOutgo: NSDate, type: String){
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        let json = ["idGasto":"","concepto":concept, "cantidad":quantity, "fecha":dateFormatter.stringFromDate(dateOutgo), "idUserGasto":["idUser":userFacade.getIdUser(), "nickname":userFacade.getNickname(),"password":userFacade.getPassword()], "tipo":type]
+        
+        
+        
+        configPostRequest("model.gastos",json: json)
+        
+        
+        sendPost() { (json: AnyObject) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                print("\n\n\n","insercion outgo correcta","\n\n\n")
+            })}
+        
+    }
+    
+    func configPostRequest(query: String, json: AnyObject){
+        
+        let myquery = webServiceURL + query
+        request = NSMutableURLRequest(URL: NSURL(string: myquery)!)
+        request.HTTPMethod = "POST"
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     }
     
     
