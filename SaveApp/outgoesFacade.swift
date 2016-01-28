@@ -64,4 +64,22 @@ class OutgoesFacade{
         try! managedContext.save()
         
     }
+    
+    func getTotal() -> Float{
+        
+        let fetchRequest = NSFetchRequest(entityName: "Outgoes")
+        
+        let result = try! managedContext.executeFetchRequest(fetchRequest) as! [Outgoes]
+        
+        var i = 0
+        var total: Float = 0.0
+        
+        
+        for (i=0; i < result.count; i++){
+            total = total + (result[i].quantity?.floatValue)!
+        }
+        
+        return total
+        
+    }
 }

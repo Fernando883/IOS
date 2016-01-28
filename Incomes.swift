@@ -16,6 +16,6 @@ class Incomes: NSManagedObject {
     @NSManaged var concept: String?
     @NSManaged var dateIncome: NSDate?
     @NSManaged var quantity: NSNumber?
-    @NSManaged var id_Icome: NSNumber?
+    @NSManaged var id_Income: NSNumber?
 
 }

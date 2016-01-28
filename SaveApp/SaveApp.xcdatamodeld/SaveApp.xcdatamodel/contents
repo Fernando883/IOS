@@ -3,7 +3,7 @@
     <entity name="Incomes" representedClassName="Incomes" syncable="YES">
         <attribute name="concept" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="dateIncome" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="id_Icome" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id_Income" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
     </entity>
     <entity name="Outgoes" representedClassName="Outgoes" syncable="YES">
@@ -13,8 +13,14 @@
         <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="id_user" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="nickname" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Incomes" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Outgoes" positionX="-54" positionY="18" width="128" height="120"/>
+        <element name="User" positionX="-45" positionY="45" width="128" height="90"/>
     </elements>
 </model>

@@ -40,6 +40,8 @@ class AddOutgoViewController: UIViewController, SSRadioButtonControllerDelegate 
         radioButtonController = SSRadioButtonsController(buttons: fijoRadioButton, variableRadioButton)
         radioButtonController!.delegate = self
         radioButtonController!.shouldLetDeSelect = true
+        
+        quantityTextField.keyboardType = .NumberPad
 
         
         

@@ -16,12 +16,30 @@ class UserViewController: UIViewController {
     @IBOutlet weak var notificationImage: UIImageView!
     
     @IBOutlet weak var balanceImage: UIImageView!
+    @IBOutlet weak var balanceTextField: UITextField!
+    
+    var incomesFacade = IncomesFacade()
+    var outgoesFacade = OutgoesFacade()
+    
+    var balance : Float = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-       balanceImage.image = UIImage(named: "BalanceIncomes")
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        balance = incomesFacade.getTotal() - outgoesFacade.getTotal()
+        
+        balanceTextField.text = NSNumber(float:balance).stringValue
+        
+        if(balance<0){
+            balanceImage.image = UIImage(named: "BalanceOutgoes")
+        }else{
+            balanceImage.image = UIImage(named: "BalanceIncomes")
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -60,10 +78,7 @@ class UserViewController: UIViewController {
                 inoutViewController.outgo = true
                 inoutViewController.navigationBar.title = "Outgoes"
                 
-            }else if segue.identifier == "offersViewSegue"{
-               // let offerViewController = segue.destinationViewController as! CollaboratorTableViewController
-                
-                
+            }else if segue.identifier == "LogOutSegue"{
         }
         
     }
