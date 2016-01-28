@@ -82,4 +82,15 @@ class OutgoesFacade{
         return total
         
     }
+    
+    func deleteAll(){
+        
+        let fetchRequest = NSFetchRequest(entityName: "Outgoes")
+        
+        let results = try! managedContext.executeFetchRequest(fetchRequest) as! [Outgoes]
+        
+        for income in results{
+            managedContext.deleteObject(income)
+        }
+    }
 }

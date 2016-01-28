@@ -18,6 +18,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var balanceImage: UIImageView!
     @IBOutlet weak var balanceTextField: UITextField!
     
+    var userFacade = UserFacade()
     var incomesFacade = IncomesFacade()
     var outgoesFacade = OutgoesFacade()
     
@@ -79,6 +80,10 @@ class UserViewController: UIViewController {
                 inoutViewController.navigationBar.title = "Outgoes"
                 
             }else if segue.identifier == "LogOutSegue"{
+                
+                userFacade.deleteAll()
+                incomesFacade.deleteAll()
+                outgoesFacade.deleteAll()
         }
         
     }

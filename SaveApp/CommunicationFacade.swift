@@ -25,6 +25,8 @@ class CommunicationFacade{
 //    
 //    var semaphore: dispatch_semaphore_t?
     
+    
+    
     func getIncomesFromUser(id_User: NSNumber) -> AnyObject{
         
         

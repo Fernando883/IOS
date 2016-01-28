@@ -39,7 +39,30 @@ class UserFacade{
         
         let results = try! managedContext.executeFetchRequest(fetchRequest) as! [User]
         
-        return (results[1].id_user?.integerValue)!
+        
+        print("holaaaaaa", results.count)
+        if (results.count + 1) < 2 {
+            return 0
+            
+        }else{
+            return (results[1].id_user?.integerValue)!
+        }
+        
+        
+    }
+    
+    func deleteAll(){
+        
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        
+        let results = try! managedContext.executeFetchRequest(fetchRequest) as! [User]
+        
+        for user in results{
+            managedContext.deleteObject(user)
+        }
+        
+        
+        
     }
     
 }

@@ -19,12 +19,15 @@ class WelcomeViewController: UIViewController {
         buttonEnter.layer.borderWidth = 5
         welcome.font = UIFont (name: "Bradley Hand", size: 50)
         
-        
+        //let storyBoard = UIStoryboard(name:"Main", bundle: nil).instantiateViewControllerWithIdentifier("UserView")
+        //let myviewController = UIViewController() as! UserViewController
+        //let storyBoard2: UIStoryBoard = UIStoryboard(name: "Logged", bundle: nil)
         
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(animated: Bool) {
+        
         
     }
     

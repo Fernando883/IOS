@@ -26,7 +26,9 @@ class DataPersonalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+        
         
         signIn.layer.cornerRadius=10
         signIn.layer.borderWidth = 5
@@ -40,6 +42,16 @@ class DataPersonalViewController: UIViewController {
         NicknameTextField.autocapitalizationType = .None
         
 
+        
+    }
+    
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        print ("holaaaaaa")
+        if userFacade.getIdUser() != 0 {
+        performSegueWithIdentifier("userPersonal", sender: self)
+        }
         
     }
 

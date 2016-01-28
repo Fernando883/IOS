@@ -109,4 +109,15 @@ class IncomesFacade{
         return incomes
     }
     
+    func deleteAll(){
+        
+        let fetchRequest = NSFetchRequest(entityName: "Incomes")
+        
+        let results = try! managedContext.executeFetchRequest(fetchRequest) as! [Incomes]
+        
+        for outgo in results{
+            managedContext.deleteObject(outgo)
+        }
+    }
+    
 }
