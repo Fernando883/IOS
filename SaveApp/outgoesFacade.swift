@@ -23,7 +23,7 @@ class OutgoesFacade{
         
         outgoes[index.row] = newoutgo
         
-        
+        communicationFacade.saveOutgoWebService(newoutgo)
         
         try! managedContext.save()
     }
@@ -78,7 +78,7 @@ class OutgoesFacade{
         
         let deleteObject = results.removeAtIndex(indexDelete)
         
-        communicationFacade.deleteOutgoFromWebService(deleteObject)
+        communicationFacade.deleteOutgoFromWebService(deleteObject.id_Outgo!)
         
         managedContext.deleteObject(deleteObject)
         
@@ -126,7 +126,7 @@ class OutgoesFacade{
         
         for outg in data{
             outgo.concept = outg["concepto"] as? String
-            outgo.quantity = outg.valueForKey("cantidad")!.integerValue
+            outgo.quantity = outg.valueForKey("cantidad")!.floatValue
             let fecha = outg["fecha"] as! String
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"

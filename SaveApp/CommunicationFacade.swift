@@ -170,14 +170,84 @@ class CommunicationFacade{
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
     }
     
-    func deleteOutgoFromWebService(outgo: Outgoes){
+    func configPutRequest(query: String, id: NSNumber, json: AnyObject){
+        
+        let myquery = webServiceURL + query + id.stringValue
+        request = NSMutableURLRequest(URL: NSURL(string: myquery)!)
+        request.HTTPMethod = "PUT"
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(json, options: .PrettyPrinted)
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    }
+    
+    func configDeleteRequest(query: String, id: NSNumber){
+        let myquery = webServiceURL + query + id.stringValue
+        request = NSMutableURLRequest(URL: NSURL(string: myquery)!)
+        request.HTTPMethod = "DELETE"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+    }
+    
+    func deleteOutgoFromWebService(id: NSNumber){
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy/MM/dd"
         
-        let json = ["idGasto":outgo.id_Outgo,"concepto":outgo.concept, "cantidad":outgo.quantity, "fecha":dateFormatter.stringFromDate(outgo.dateOutgo!), "idUserGasto":["idUser":userFacade.getIdUser(), "nickname":userFacade.getNickname(),"password":userFacade.getPassword()], "tipo":outgo.type]
-
+        configDeleteRequest("model.gastos/",id: id)
         
+        sendPost() { (json: AnyObject) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                print("\n\n\n","delete outgo correcta","\n\n\n")
+            })}
+        
+    }
+    
+    func deleteIncomeFromWebService(id: NSNumber){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        configDeleteRequest("model.ingresos/",id: id)
+        
+        sendPost() { (json: AnyObject) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                print("\n\n\n","delete income correcta","\n\n\n")
+            })}
+    }
+    
+    func saveIncomeWebService(income: Incomes){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        let json = ["idIngreso":income.id_Income!,"concepto":income.concept!, "cantidad":income.quantity!, "fecha":dateFormatter.stringFromDate(income.dateIncome!), "idUserIngreso":["idUser":userFacade.getIdUser(), "nickname":userFacade.getNickname(),"password":userFacade.getPassword()]]
+        
+        
+        
+        configPutRequest("model.ingresos/",id: income.id_Income!, json: json)
+        
+        
+        sendPost() { (json: AnyObject) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                print("\n\n\n","income modified","\n\n\n")
+            })}
+    }
+    
+    func saveOutgoWebService(outgo: Outgoes){
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        
+        let json = ["idGasto":outgo.id_Outgo!,"concepto":outgo.concept!, "cantidad":outgo.quantity!, "fecha":dateFormatter.stringFromDate(outgo.dateOutgo!), "idUserGasto":["idUser":userFacade.getIdUser(), "nickname":userFacade.getNickname(),"password":userFacade.getPassword()], "tipo":outgo.type!]
+        
+        
+        
+        configPutRequest("model.gastos/",id: outgo.id_Outgo!, json: json)
+        
+        
+        sendPost() { (json: AnyObject) -> Void in
+            dispatch_async(dispatch_get_main_queue(), {
+                print("\n\n\n","outgo modified","\n\n\n")
+            })}
+    }
+    
+    func signUp(nickname: String, password: String) -> Bool{
+        return true
     }
     
     

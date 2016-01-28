@@ -16,6 +16,8 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nickName: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPwd: UITextField!
+    
+    let communicationFacade = CommunicationFacade()
 
     
     override func viewDidLoad() {
@@ -56,6 +58,8 @@ class SignUpViewController: UIViewController {
                                             si devuelve user -> ALERTA: ya existe
                 */
                 print("Funciona")
+                communicationFacade.signUp(newNickname, password: newPassword)
+                
                 
             }else{
                 //ALERTA: PASSWORD NOT CONFIRMED

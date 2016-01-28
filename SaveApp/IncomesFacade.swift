@@ -23,6 +23,8 @@ class IncomesFacade{
         
         incomes[index.row] = newIncome
         
+        communicationFacade.saveIncomeWebService(newIncome)
+        
         try! managedContext.save()
     }
     
@@ -75,6 +77,8 @@ class IncomesFacade{
         
         let deleteObject = results.removeAtIndex(indexDelete)
         
+        communicationFacade.deleteIncomeFromWebService(deleteObject.id_Income!)
+        
         managedContext.deleteObject(deleteObject)
         
         try! managedContext.save()
@@ -105,17 +109,14 @@ class IncomesFacade{
         var incomes = [Incomes]()
         var i: Int=1
         let income = NSEntityDescription.insertNewObjectForEntityForName("Incomes", inManagedObjectContext: managedContext) as! Incomes
-        print("holaaaanoussairrrr",data.count)
-        for puta in data{
-            print(puta["concepto"])
-            income.concept = puta["concepto"] as! String
-            print("holaaaaaaa")
-            income.quantity = puta.valueForKey("cantidad")!.integerValue
-            let fecha = puta["fecha"] as! String
+        for inco in data{
+            income.concept = inco["concepto"] as! String
+            income.quantity = inco.valueForKey("cantidad")!.floatValue
+            let fecha = inco["fecha"] as! String
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
             income.dateIncome = dateFormatter.dateFromString(fecha)
-            income.id_Income = puta.valueForKey("idIngreso")!.integerValue
+            income.id_Income = inco.valueForKey("idIngreso")!.integerValue
             //income = income.newIncome(concepto, quantity: cantidad, dateIncome: date!, id_Income: idIncome)
             incomes.append(income)
         }

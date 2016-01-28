@@ -181,7 +181,12 @@ class inoutTableViewController: UITableViewController {
             cell.quantityTextLabel.text = outgo.quantity?.stringValue
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
-            cell.dateTextLabel.text = dateFormatter.stringFromDate(outgo.dateOutgo!)
+            if outgo.dateOutgo != nil{
+                cell.dateTextLabel.text = dateFormatter.stringFromDate(outgo.dateOutgo!)
+            }else{
+                cell.dateTextLabel.text = ""
+            }
+            
             
             
         }else if outgo == false{//If we want to see incomes
@@ -192,7 +197,11 @@ class inoutTableViewController: UITableViewController {
             cell.quantityTextLabel.text = income.quantity?.stringValue
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "yyyy/MM/dd"
-            cell.dateTextLabel.text = dateFormatter.stringFromDate(income.dateIncome!)
+            if income.dateIncome != nil{
+                cell.dateTextLabel.text = dateFormatter.stringFromDate(income.dateIncome!)
+            }else{
+                cell.dateTextLabel.text = ""
+            }
             
         }
         
@@ -231,7 +240,7 @@ class inoutTableViewController: UITableViewController {
             tableView.reloadData()
         }
         
-
+        tableView.reloadData()
 
     }
 

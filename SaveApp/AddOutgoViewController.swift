@@ -74,12 +74,10 @@ class AddOutgoViewController: UIViewController, SSRadioButtonControllerDelegate 
             
         }else{
             if  navigationController!.title == "Add Income"{
-                print("holaaaaaa soy income")
                 navigationController!.title = "Add Income"
                 variableRadioButton.hidden = true
                 fijoRadioButton.hidden = true
             }else if navigationController!.title == "Add Outgo"{
-                print("holaaaaaa")
                 navigationController!.title = "Add Outgo"
             }
             
