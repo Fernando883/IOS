@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DataPersonalViewController: UIViewController {
+class DataPersonalViewController: UIViewController, UITextFieldDelegate {
 
     
     
@@ -42,6 +42,7 @@ class DataPersonalViewController: UIViewController {
         
         NicknameTextField.autocorrectionType = .No
         NicknameTextField.autocapitalizationType = .None
+        PasswordTextField.delegate = self
         
 
         
@@ -134,6 +135,17 @@ class DataPersonalViewController: UIViewController {
         outgoesFacade.deleteAll()
         incomesFacade.loadFromWebService(idUser)
         outgoesFacade.loadFromWebService(idUser)
+        
+    }
+    
+    // MARK: UITextFieldDelegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        // Hide the keyboard.
+        textField.resignFirstResponder()
+        
+        return true
         
     }
 
