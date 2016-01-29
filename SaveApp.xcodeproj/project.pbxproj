@@ -139,33 +139,11 @@
 		525254AF1C52972000434EF4 /* SaveApp */ = {
 			isa = PBXGroup;
 			children = (
-				52D563A31C5A21B20015C7AE /* SignUpViewController.swift */,
-				525254B01C52972100434EF4 /* AppDelegate.swift */,
-				D4EE39551C53B1DF009A8E7A /* UserViewController.swift */,
-				D42A00851C5778D700DC7A5E /* AddOutgoViewController.swift */,
-				D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */,
-				52D563A11C5A204A0015C7AE /* DataPersonalViewController.swift */,
-				D42A00871C577A6B00DC7A5E /* SSRadioButtonsController.swift */,
-				D4EE39571C54D9DF009A8E7A /* inoutTableViewCell.swift */,
-				525254E91C52A48C00434EF4 /* RatingControl.swift */,
-				525254B21C52972100434EF4 /* ViewController.swift */,
-				525254E71C529FAE00434EF4 /* CollaboratorTableViewCell.swift */,
-				525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */,
-				525254ED1C52B01900434EF4 /* Offer.swift */,
-				525254B41C52972100434EF4 /* Main.storyboard */,
-				525254BA1C52972100434EF4 /* Assets.xcassets */,
-				525254BC1C52972100434EF4 /* LaunchScreen.storyboard */,
+				52BBDA231C5AEDEF00D5D7C9 /* Model */,
+				52BBDA221C5AEDC600D5D7C9 /* View */,
+				52BBDA211C5AED6C00D5D7C9 /* Controller */,
 				525254BF1C52972100434EF4 /* Info.plist */,
 				525254B71C52972100434EF4 /* SaveApp.xcdatamodeld */,
-				52D563A51C5A29640015C7AE /* CommunicationFacade.swift */,
-				D42A00881C577A6B00DC7A5E /* SSRadioButton.swift */,
-				D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */,
-				D42A007F1C57714400DC7A5E /* outgoesFacade.swift */,
-				52DCF6A31C591353000E9369 /* Incomes.swift */,
-				52DCF6A51C591353000E9369 /* Outgoes.swift */,
-				52D563A71C5A2A1C0015C7AE /* UserFacade.swift */,
-				52D563AB1C5A2A4D0015C7AE /* User.swift */,
-				52D563AD1C5A40A80015C7AE /* WelcomeViewController.swift */,
 			);
 			path = SaveApp;
 			sourceTree = "<group>";
@@ -186,6 +164,68 @@
 				525254D51C52972100434EF4 /* Info.plist */,
 			);
 			path = SaveAppUITests;
+			sourceTree = "<group>";
+		};
+		52BBDA211C5AED6C00D5D7C9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D4EE39551C53B1DF009A8E7A /* UserViewController.swift */,
+				525254B01C52972100434EF4 /* AppDelegate.swift */,
+				D42A00851C5778D700DC7A5E /* AddOutgoViewController.swift */,
+				D4EE39531C53B1BC009A8E7A /* inoutTableViewController.swift */,
+				52D563A11C5A204A0015C7AE /* DataPersonalViewController.swift */,
+				D42A00871C577A6B00DC7A5E /* SSRadioButtonsController.swift */,
+				525254B21C52972100434EF4 /* ViewController.swift */,
+				D42A00881C577A6B00DC7A5E /* SSRadioButton.swift */,
+				D4EE39571C54D9DF009A8E7A /* inoutTableViewCell.swift */,
+				525254E71C529FAE00434EF4 /* CollaboratorTableViewCell.swift */,
+				525254EB1C52AFA700434EF4 /* CollaboratorTableViewController.swift */,
+				52D563A31C5A21B20015C7AE /* SignUpViewController.swift */,
+				52D563AD1C5A40A80015C7AE /* WelcomeViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		52BBDA221C5AEDC600D5D7C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				525254B41C52972100434EF4 /* Main.storyboard */,
+				525254BC1C52972100434EF4 /* LaunchScreen.storyboard */,
+				525254BA1C52972100434EF4 /* Assets.xcassets */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		52BBDA231C5AEDEF00D5D7C9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				52BBDA251C5AEEA300D5D7C9 /* Entity */,
+				52BBDA241C5AEE8000D5D7C9 /* Facade */,
+				525254ED1C52B01900434EF4 /* Offer.swift */,
+				525254E91C52A48C00434EF4 /* RatingControl.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		52BBDA241C5AEE8000D5D7C9 /* Facade */ = {
+			isa = PBXGroup;
+			children = (
+				D42A007D1C5764D400DC7A5E /* IncomesFacade.swift */,
+				52D563A51C5A29640015C7AE /* CommunicationFacade.swift */,
+				52D563A71C5A2A1C0015C7AE /* UserFacade.swift */,
+				D42A007F1C57714400DC7A5E /* outgoesFacade.swift */,
+			);
+			name = Facade;
+			sourceTree = "<group>";
+		};
+		52BBDA251C5AEEA300D5D7C9 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				52D563AB1C5A2A4D0015C7AE /* User.swift */,
+				52DCF6A51C591353000E9369 /* Outgoes.swift */,
+				52DCF6A31C591353000E9369 /* Incomes.swift */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +296,7 @@
 				TargetAttributes = {
 					525254AC1C52972000434EF4 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = UE55G86CF4;
 					};
 					525254C31C52972100434EF4 = {
 						CreatedOnToolsVersion = 7.2;
@@ -482,10 +523,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SaveApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Grupo4.SaveApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SaveApp/SaveApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -496,10 +540,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SaveApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Grupo4.SaveApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "SaveApp/SaveApp-Bridging-Header.h";
 			};
 			name = Release;

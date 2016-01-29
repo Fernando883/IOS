@@ -47,6 +47,12 @@ class SignUpViewController: UIViewController {
         
         if identifier == "signUpSegue"{
             
+            let alert = UIAlertView()
+            
+            alert.title = "Error"
+            
+            alert.addButtonWithTitle("OK")
+            
             var newNickname : String = nickName.text!
             
             var newPassword : String = password.text!
@@ -56,29 +62,31 @@ class SignUpViewController: UIViewController {
             if newNickname.isEmpty{
                 if newPassword.isEmpty{
                     if confirmPassword.isEmpty{
-                        //ALERTA: FILL ALL THE TEXT FIELDS
+                        
+                        alert.message = "Fill all text fields"
+                        alert.show()
                         return false
                     }
                 }
             }else{
                 if (newPassword as NSString).isEqualToString(confirmPassword) && (!newPassword.isEmpty) && (!confirmPassword.isEmpty){
-                    /*
-                    find user bynickname -> si devuelve nil -> no exite seguir adelante: POST
-                    si devuelve user -> ALERTA: ya existe
-                    */
-                    print("Funciona")
+    
+                    alert.message = "Insert valid password"
+                    alert.show()
                     if communicationFacade.signUp(newNickname, password: newPassword){
-                        print("Registrado")
+                        alert.message = "User register"
+                        alert.show()
                         return true
                     }else{
-                        print("Usuario ya existe")
+                        alert.message = "Nickname already exist"
+                        alert.show()
                         return false
                     }
                     
                     
                 }else{
-                    //ALERTA: PASSWORD NOT CONFIRMED
-                    print("no funciona")
+                    alert.message = "Password incorrect"
+                    alert.show()
                     return false
                 }
              
