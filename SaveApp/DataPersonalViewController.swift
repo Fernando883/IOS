@@ -51,10 +51,10 @@ class DataPersonalViewController: UIViewController, UITextFieldDelegate {
     
     
     override func viewDidAppear(animated: Bool) {
-//        print ("holaaaaaa")
-//        if userFacade.getIdUser() != 0 {
-//        performSegueWithIdentifier("userPersonal", sender: self)
-//        }
+        print ("holaaaaaa")
+        if userFacade.getIdUser() != 0 {
+        performSegueWithIdentifier("userPersonal", sender: self)
+        }
         
     }
 
@@ -121,7 +121,12 @@ class DataPersonalViewController: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "userPersonal"{
-            loadUserDatatoCoreData(idUser!)
+            if idUser?.integerValue > 0 {
+                loadUserDatatoCoreData(idUser!)
+            }else{
+                loadUserDatatoCoreData(userFacade.getIdUser())
+            }
+            
             
         }
         

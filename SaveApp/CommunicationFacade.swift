@@ -115,6 +115,16 @@ class CommunicationFacade{
     
     func sendPost (callback: (AnyObject) -> Void){
         session.dataTaskWithRequest(request){(data,response,error) -> Void in
+            //let reply = try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
+            callback(response!)
+            
+            }.resume()
+        
+        
+    }
+    
+    func sendPut (callback: (AnyObject) -> Void){
+        session.dataTaskWithRequest(request){(data,response,error) -> Void in
             let reply = try! NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers)
             callback(reply)
             
@@ -256,7 +266,7 @@ class CommunicationFacade{
         
         var iduser: Int?
         
-        sendPost() { (response: AnyObject) -> Void in
+        sendPut() { (response: AnyObject) -> Void in
             //dispatch_async(dispatch_get_main_queue(), {
                 self.idUser = response["idUser"] as! Int
                 dispatch_semaphore_signal(semaphore)

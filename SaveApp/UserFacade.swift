@@ -48,7 +48,7 @@ class UserFacade{
         
         let results = try! managedContext.executeFetchRequest(fetchRequest) as! [User]
         
-        if (results.count + 1) < 2 {
+        if (results.count) <= 1 {
             return 0
             
         }else{

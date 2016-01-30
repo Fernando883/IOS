@@ -41,6 +41,9 @@ class UserViewController: UIViewController {
         }else{
             balanceImage.image = UIImage(named: "BalanceIncomes")
         }
+        
+        //storyboard?.instantiateViewControllerWithIdentifier("UserView")
+        
     }
     
     override func didReceiveMemoryWarning() {
